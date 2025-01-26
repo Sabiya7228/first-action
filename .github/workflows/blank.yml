@@ -1,0 +1,30 @@
+name: Directory and File Creation Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-files:
+    name: Create Directories and Text Files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Create Directories
+        run: |
+          mkdir -p /home/runner/work/my-repo/my-directory/subdirectory1
+          mkdir -p /home/runner/work/my-repo/my-directory/subdirectory2
+
+      - name: Create Text Files
+        run: |
+          echo "This is a sample text file for subdirectory1." > /home/runner/work/my-repo/my-directory/subdirectory1/sample1.txt
+          echo "This is a sample text file for subdirectory2." > /home/runner/work/my-repo/my-directory/subdirectory2/sample2.txt
+
+      - name: List Created Files
+        run: |
+          echo "Created directories and files:"
+          ls -R /home/runner/work/my-repo/my-directory
