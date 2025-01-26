@@ -16,13 +16,13 @@ jobs:
 
       - name: Create Directories
         run: |
-          mkdir -p /home/runner/work/my-repo/my-directory/subdirectory1
-          mkdir -p /home/runner/work/my-repo/my-directory/subdirectory2
+          mkdir -p /home/runner/work/first-action/my-directory/subdirectory1
+          mkdir -p /home/runner/work/first-action/my-directory/subdirectory2
 
       - name: Create Text Files
         run: |
-          echo "This is a sample text file for subdirectory1." > /home/runner/work/my-repo/my-directory/subdirectory1/sample1.txt
-          echo "This is a sample text file for subdirectory2." > /home/runner/work/my-repo/my-directory/subdirectory2/sample2.txt
+          echo "This is a sample text file for subdirectory1." > /home/runner/work/first-action/my-directory/subdirectory1/sample1.txt
+          echo "This is a sample text file for subdirectory2." > /home/runner/work/first-action/my-directory/subdirectory2/sample2.txt
 
       - name: Install lftp
         run: |
@@ -32,4 +32,4 @@ jobs:
       - name: List Created Files
         run: |
           echo "Created directories and files:"
-          ls -R /home/runner/work/my-repo/my-directory
+          ls -R /home/runner/work/first-action/my-directory
