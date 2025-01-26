@@ -1,4 +1,4 @@
-name: Directory and File Creation Workflow
+name: Directory and File Creation with FTP Installation Workflow
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   create-files:
-    name: Create Directories and Text Files
+    name: Create Directories, Text Files, and Install FTP
     runs-on: ubuntu-latest
 
     steps:
@@ -23,6 +23,11 @@ jobs:
         run: |
           echo "This is a sample text file for subdirectory1." > /home/runner/work/my-repo/my-directory/subdirectory1/sample1.txt
           echo "This is a sample text file for subdirectory2." > /home/runner/work/my-repo/my-directory/subdirectory2/sample2.txt
+
+      - name: Install lftp
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
 
       - name: List Created Files
         run: |
